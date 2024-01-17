@@ -110,6 +110,16 @@ h2.post-title {
     margin-bottom: 40px;
 }
 
+.authorsection{
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+
 .authorimage img{
     border-radius: 40px;
+}
+
+.authorpage{
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
