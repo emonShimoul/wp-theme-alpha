@@ -1,3 +1,12 @@
+<?php
+$alpha_layout_class = "col-md-8";
+$alpha_text_class = "";
+if(!is_active_sidebar("sidebar-1")){
+    $alpha_layout_class = "col-md-10 offset-md-1";
+    $alpha_text_class = "text-center";
+} 
+?>
+
 <?php get_header(); ?>
 
 <body <?php body_class(); ?>>
@@ -5,7 +14,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="<?php echo $alpha_layout_class; ?>">
         <div class="posts">
             <?php
                 while(have_posts()) {
@@ -15,10 +24,10 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 class="post-title">
+                                <h2 class="post-title <?php echo $alpha_text_class; ?>">
                                     <?php the_title(); ?>
                                 </h2>
-                                <p>
+                                <p class="<?php echo $alpha_text_class; ?>">
                                     <strong><?php the_author(); ?></strong><br/>
                                     <?php echo get_the_date(); ?>
                                 </p>
@@ -99,6 +108,9 @@
                 </div>
             </div>
         </div>
+        <?php
+            if(is_active_sidebar("sidebar-1")):
+        ?>
         <div class="col-md-4">
             <?php
                 if(is_active_sidebar("sidebar-1")){
@@ -106,6 +118,9 @@
                 }
             ?>
         </div>
+        <?php
+            endif;
+        ?>
     </div>
 </div>
 
